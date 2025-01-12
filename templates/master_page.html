@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Page</title>
+    <!-- Styling with Gray and Gold Yellow -->
+    <style>
+        /* Make the body and html take up the full height of the screen */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        /* Flexbox to ensure footer is always at the bottom */
+        .content {
+            min-height: 100%; /* Ensure the content takes the full height */
+            display: flex;
+            flex-direction: column; /* Stack content vertically */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light Gray Background */
+            color: #333; /* Dark Gray Text */
+        }
+
+        header {
+            background-color: #d4af37; /* Gold Yellow */
+            color: #fff;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        nav {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        nav button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .btn-admin {
+            background-color: #6c757d; /* Gray */
+            color: #fff;
+        }
+
+        .btn-admin:hover {
+            background-color: #5a6268; /* Darker Gray */
+        }
+
+        .btn-logout {
+            background-color: #d4af37; /* Gold Yellow */
+            color: #fff;
+        }
+
+        .btn-logout:hover {
+            background-color: #b59130; /* Darker Gold */
+        }
+
+        footer {
+            margin-top: auto; /* Pushes the footer to the bottom */
+            background-color: #f1f1f1; /* Very Light Gray */
+            padding: 10px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666; /* Medium Gray */
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Wrapper with Flexbox to keep footer at the bottom -->
+<div class="content">
+    <header>
+        Master Page
+    </header>
+
+    <nav>
+        <button class="btn-admin" onclick="window.location.href='/admin/'">Go to Admin Panel</button>
+        <button class="btn-logout" onclick="window.location.href='/logout/'">Logout</button>
+    </nav>
+
+    <main>
+        <div style="text-align: center; margin: 50px 20px;">
+            <h1>Welcome to the Master Page</h1>
+            <p>This is the master page of your website. Use the buttons above to navigate.</p>
+        </div>
+    </main>
+
+    <footer>
+        © 2023 Dream Hub. All rights reserved.
+    </footer>
+</div>
+
+</body>
+</html>

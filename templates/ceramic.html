@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dream Hub - Ceramic & Graphane Coating</title>
+<meta content="" name="description">
+<meta content="" name="keywords">
+
+<!-- Favicons -->
+<link href="{% static 'assets/img/icon.png' %}" rel="icon">
+<link href="{% static 'assets/img/icon.png' %}" rel="apple-touch-icon">
+<!-- Fonts -->
+<link href="{% static 'https://fonts.googleapis.com' %}" rel="preconnect">
+<link href="{% static 'https://fonts.gstatic.com" rel="preconnect' %}" crossorigin>
+<link href="{% static 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap' %}" rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+<!-- Main CSS File -->
+<link href="{% static 'assets/css/main.css' %}" rel="stylesheet"> 
+</head>
+<body class="index-page">
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+        
+        <a href="{% url 'index'%}" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/carhub.png" alt=""> -->
+        {% comment %} <img src="{% static 'assets/img/hero-carousel/logo-brotomotive.png' %}"/> {% endcomment %}
+        <img src="{% static 'assets/img/hero-carousel/logo.png' %}"/>
+        {% comment %} <h1 class="sitename">Dream Hub</h1> <span>.</span> {% endcomment %}
+        </a>
+        <nav id="navmenu" class="navmenu">
+        <ul>
+        <li><a href="{% url 'index'%}">Home</a></li>
+        <li><a href="{% url 'about'%}">About us </a></li>
+        <!-- <li><a href="services.html"> Our Services</a></li> -->
+        <li class="dropdown"><a href="#service"class="active"><span>Our Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+                <li><a href="{% url 'ceramic'%}">Ceramic & Graphane Coating</a></li>
+                </li>
+                <li><a href="{% url 'ppf'%}">Paint Potection Film</a></li>
+                <li><a href="{% url 'denting'%}">Body Shop (danting painting)</a></li>
+                <li><a href="{% url 'wrap'%}">Wrap Jobs</a></li>
+                <li><a href="{% url 'detailing'%}">Detailing and interior cleaning</a></li>
+                <li><a href="{% url 'insurance'%}">Insurance clames</a></li>
+                <li><a href="{% url 'other'%}">Other services</a>
+                </ul>
+            </li>
+            <li><a href="{% url 'contact'%}">Contact</a></li>
+            <li><a href="{% url 'login'%}">Login</a></li>
+            </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+        
+        </div>
+        </header>
+<main class="main">
+    <div>
+        <!-- Placeholder for content -->
+        <div id="content-placeholder" class="content-placeholder" style="height: 100px;">
+            <!-- Content goes here in the future -->
+        </div>
+    </div>
+<div class="card mb-3" style="max-width: 100%;">
+    <div class="row g-0">
+        <div class="col-md-6">
+        <div class="card-body">
+            <h3 class="card-title"><b>Ceramic & Graphane Coating</b></h3>
+            <p>
+                Advanced coatings derived with nano-technology that help prevent environmental damages on your car’s precious paint. These coatings form a 9H or 10H hard crystallised layer <br>on top of your vehicle’s clear coat and provide resistance against light scratches, chemical / acids and also protects the paint against harmful UV rays. You will also experience hydrophobic properties with the application of these coatings, which would avoid water markings to a great extent. These coatings are available with 3, 5 and 7 year application warranty plans.
+                Choose from a range of Body, Wheel, Glasses and Plastic trim coatings here at Dream Hub.
+                Contact us by filling out the enquiry form and get your car ceramic coated today.<br>
+                <b>Note:</b>
+                <li>
+                The life of coatings totally depend on the usage and handling of the vehicle.</li>
+                <li> No coating is scratch-proof and daily care is utmost necessary for the best appearance of your vehicle.</li>
+                <li> Ceramic coatings are built to resist light damages. To get the best life out of a ceramic coat, use clean microfibres and less TDS water for daily wiping and washing needs.</li>
+                <li>An annual maintenance is necessary for ceramic coated cars. This service is payable and helps get rid of damages and contaminants as much as possible.</li>
+                <li>Maintenance charges may change as per inflation and fluctuation in material pricing and its periodicity depends purely on usage and daily care from the customer’s end.</li>
+                <li>  Discolouration, Patchiness and Peeling / Cracking of coating is covered under application warranty. Ceramic coating’s warranty is not applicable on 3rd party painted panels.</li>
+                </li>
+            </p>
+        </div>
+        </div>
+        <div class="col-md-6">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/8NKoOezagKY?si=EUzi6IteFvdWHkPk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/3il6NdT49k0?si=xqjpqQvTiTHjjnCO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    </div>
+</main>
+{% include "footer.html"%}
+</body>
+
+</html>

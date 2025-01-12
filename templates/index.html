@@ -1,0 +1,388 @@
+{% load static %}
+{% include "header.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Deam Hub</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/icon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/icon.png' %}" rel="apple-touch-icon">
+
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet"> 
+</head>
+<body class="index-page">
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <div class="info d-flex align-items-center">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6 text-center">
+              <h2 data-aos="fade-down"  data-aos-delay="100">WELCOME TO <br>DREAM HUB<span>.</span></h2>
+              <p data-aos="fade-up" data-aos-delay="100">Transform your vehicle from ordinary to extraordinary with our expert car makeovers. Whether it's a sleek new look, performance upgrades, or custom detailing, we specialize in crafting a ride that truly reflects your style. Drive with confidence and stand out on every road—your dream car is just a makeover away.</p>
+              <a href="{% url 'contact' %}" class="btn-get-started">Get Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <div class="carousel-item">
+          <img src="{% static 'assets/img/hero-carousel/hero1.jpg' %}" alt="">
+        </div>
+
+        <div class="carousel-item active">
+          <img src="{% static 'assets/img/hero-carousel/hero2.jpg' %}" alt="">
+        </div>
+
+        <div class="carousel-item">
+          <img src="{% static 'assets/img/hero-carousel/hero3.jpg' %}" alt="">
+        </div>
+
+        <div class="carousel-item">
+          <img src="{% static 'assets/img/hero-carousel/hero4.jpg' %}" alt="">
+        </div>
+
+        {% comment %} <a class="carousel-control-prev" href="{% static '#hero-carousel' %}" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="{% static '#hero-carousel' %}" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a> {% endcomment %}
+
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- Get Started Section -->
+    {% comment %} <section id="get-started" class="get-started section">
+
+      <div class="container">
+
+        <div class="row justify-content-between gy-4">
+
+          <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+            <div class="content">
+              <h3>Transforming Dreams into Reality</h3>
+              <p>encapsulates our commitment to bringing your automotive visions to life. At our custom car company, we specialize in turning ordinary vehicles into extraordinary works of art, tailored to your personal style and preferences. Whether it's a complete overhaul or subtle enhancements, we ensure that every detail reflects your individuality, creating a driving experience that's as unique as you are. Your dream car isn't just a concept—it's a reality waiting to be crafted.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-5" data-aos="zoom-out" data-aos-delay="200">
+            <input type="hidden" name="access_key" value="1b3c91ec-0fe3-47de-988c-cdbd42705cf0">
+            <form action="{% url 'contact' %}" method="POST" name="contactus_form" class="php-email-form" data-aos="fade-up" data-aos-delay="400">
+              {% csrf_token %}
+              <div class="row gy-4">
+                  <div class="col-md-6">
+                      <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                  </div>
+          
+                  <div class="col-md-6">
+                      <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                  </div>
+          
+                  <div class="col-md-12">
+                      <input type="text" class="form-control" name="Phone" placeholder="Phone" required="">
+                  </div>
+          
+                  <div class="col-md-12">
+                      <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                  </div>
+          
+                  <div class="col-md-12 text-center">
+                      <div class="loading">Loading</div>
+                      <div class="error-message"></div>
+                      <div class="sent-message">Your message has been sent. Thank you!</div>
+          
+                      <button type="submit">Send Message</button>
+                  </div>
+              </div>
+          </form>
+          </div><!-- End Quote Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Get Started Section --> {% endcomment %}
+
+    <!-- Constructions Section -->
+    <section id="constructions" class="constructions section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up" id="service">
+        <h2>services</h2>
+        <p></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-6 col-md-6" data-aos="fade-right" data-aos-delay="100">
+            <div class="card-item">
+              <div class="row">
+                <div class="col-xl-12">
+                  
+                  <div class="card-bg" style="background-image: url({% static 'assets/img/service1.jpg' %});">
+                  
+                    <!-- <img class="service" src="assets/img/service1.jpg" alt=""> -->
+                  </div>
+                  <div class="service-text">Ceramic Coating And Graphane Coating </div>
+                </div>
+                <!-- <div class="col-xl-6 d-flex align-items-center">
+                  <div class="card-body">
+                    <h4 class="card-title">Ceramic & Graphane Coating</h4>
+                    <p>Fuga in dolorum et iste et culpa. Commodi possimus nesciunt modi voluptatem placeat deleniti adipisci. Cum delectus doloribus non veritatis. Officia temporibus illo magnam. Dolor eos et.</p> 
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-6 col-md-6" data-aos="fade-left" data-aos-delay="200">
+            <div class="card-item">
+              <div class="row">
+                <div class="col-xl-12">
+                  <div class="card-bg" style="background-image: url({% static 'assets/img/service2.jpg' %});"></div>
+                  <div class="service-text">Paint Protection Films</div>
+                </div>
+
+              </div>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-6 col-md-6" data-aos="fade-right" data-aos-delay="200">
+            <div class="card-item">
+              <div class="row">
+                <div class="col-xl-12">
+                
+                  <div class="card-bg" style="background-image: url({% static 'assets/img/service3.jpeg' %});"></div>
+                  <div class="service-text">Body Shop (Danting Painting)</div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-6 col-md-6" data-aos="fade-left" data-aos-delay="400">
+            <div class="card-item">
+              <div class="row">
+                <div class="col-xl-12">
+                  <div class="card-bg" style="background-image: url({% static 'assets/img/service4.jpg' %});"></div>
+                  <div class="service-text">Interior Cleaning</div>
+                </div>
+                <!-- <div class="col-xl-12 d-flex align-items-center">
+                  <div class="card-body">
+                    <h4 class="card-title">Detailing And Interior cleaning</h4>
+                    <p>Aut est quidem doloremque voluptatem magnam quis excepturi vero quia. Eum eos doloremque architecto illo at beatae dolore. Fugiat suscipit et sint ratione dolores. Aut aliquid ea dolores libero nobis.</p> 
+                  </div> 
+                </div> -->
+              </div>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-6 col-md-6" data-aos="fade-right" data-aos-delay="500">
+            <div class="card-item">
+              <div class="row">
+                <div class="col-xl-12">
+                  <div class="card-bg" style="background-image: url({% static 'assets/img/service5.jpeg' %});"></div>
+                  <div class="service-text">Insurance Claim</div>
+                </div>
+                <!-- <div class="col-xl-6 d-flex align-items-center">
+                  <div class="card-body">
+                    <h4 class="card-title">Insurance Claim</h4>
+                    <p>Aut est quidem doloremque voluptatem magnam quis excepturi vero quia. Eum eos doloremque architecto illo at beatae dolore. Fugiat suscipit et sint ratione dolores. Aut aliquid ea dolores libero nobis.</p> 
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-6 col-md-6" data-aos="fade-left" data-aos-delay="600">
+            <div class="card-item">
+              <div class="row">
+                <div class="col-xl-12">
+                  <div class="card-bg" style="background-image: url({% static 'assets/img/service6.jpeg' %});">
+                    <!-- <img src="assets/img/service6.jpeg" alt=""> -->
+                    <div class="service-text">Body Wrap</div></div>
+                </div>
+                <div class="col-xl-0 d-flex align-items-center">
+                  <!-- <div class="card-body">
+                    <h4 class="card-title">Other Services</h4>
+                    <p>Aut est quidem doloremque voluptatem magnam quis excepturi vero quia. Eum eos doloremque architecto illo at beatae dolore. Fugiat suscipit et sint ratione dolores. Aut aliquid ea dolores libero nobis.</p>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div><!-- End Card Item -->
+        </div>
+
+      </div>
+
+    </section><!-- /Cards Section -->
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+
+      <div class="container">
+
+        <ul class="nav nav-tabs row  g-2 d-flex" data-aos="fade-up" data-aos-delay="100" role="tablist">
+
+          <li class="nav-item col-3" role="presentation" id="ceramic">
+            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1" aria-selected="true" role="tab">
+              <h4>Ceramic Coating & Graphane Coating</h4>
+            </a>
+          </li><!-- End tab nav item -->
+
+          <li class="nav-item col-3" role="presentation" id="PPF">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2" aria-selected="false" tabindex="-1" role="tab">
+              <h4>Paint Protection Film (PPF)</h4>
+            </a><!-- End tab nav item -->
+
+          </li>
+          <li class="nav-item col-3" role="presentation">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3" aria-selected="false" tabindex="-1" role="tab">
+              <h4>Body Shop</h4>
+            </a>
+          </li><!-- End tab nav item -->
+          <li class="nav-item col-3" role="presentation">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-4" aria-selected="false" tabindex="-1" role="tab">
+              <h4>Detailing and Interior cleaning</h4>
+            </a>
+          </li><!-- End tab nav item -->
+        </ul>
+        <div class="tab-content" data-aos="fade-up" data-aos-delay="200" id="ceramic">
+
+          <div class="tab-pane fade active show" id="features-tab-1" role="tabpanel">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                <h3>Ceramic Coating & Graphane Coating</h3>
+                <p>
+                  Advanced coatings derived with nano-technology that help prevent environmental damages on your car’s precious paint. These coatings form a 9H or 10H hard crystallised layer <br>on top of your vehicle’s clear coat and provide resistance against light scratches, chemical / acids and also protects the paint against harmful UV rays. You will also experience hydrophobic properties with the application of these coatings, which would avoid water markings to a great extent. These coatings are available with 3, 5 and 7 year application warranty plans.
+                  Choose from a range of Body, Wheel, Glasses and Plastic trim coatings here at Dream Hub.
+                  Contact us by filling out the enquiry form and get your car ceramic coated today.<br>
+                  <b>Note:</b>
+                  <li>
+                  The life of coatings totally depend on the usage and handling of the vehicle.</li>
+                  <li> No coating is scratch-proof and daily care is utmost necessary for the best appearance of your vehicle.</li>
+                  <li> Ceramic coatings are built to resist light damages. To get the best life out of a ceramic coat, use clean microfibres and less TDS water for daily wiping and washing needs.</li>
+                  <li>An annual maintenance is necessary for ceramic coated cars. This service is payable and helps get rid of damages and contaminants as much as possible.</li>
+                  <li>Maintenance charges may change as per inflation and fluctuation in material pricing and its periodicity depends purely on usage and daily care from the customer’s end.</li>
+                  <li>  Discolouration, Patchiness and Peeling / Cracking of coating is covered under application warranty. Ceramic coating’s warranty is not applicable on 3rd party painted panels.</li>
+                  </li>
+                </p>
+                <!-- <ul>
+                  <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
+                </ul> -->
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/8NKoOezagKY?si=EUzi6IteFvdWHkPk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/3il6NdT49k0?si=xqjpqQvTiTHjjnCO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div><!-- End tab content item -->
+
+          <div class="tab-pane fade" id="features-tab-2" role="tabpanel">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                <h3>Paint protection films(PPF)</h3>
+                <p>
+                  Famously known as PPF, this transparent high-gloss film is the most advanced and rugged protection that you can offer your vehicle. Afraid of being keyed by the neighbours kids, or just worried that your better half might scratch the bumper in the parking? Well PPF will help prevent almost all deep scratches and gashes with its thick layer of protection. We offer Self healing thermo-plastic polyurethane (TPU) PPF which completely heals all swirl marks or superficial scratches that appear due to improper washing. PPF prevents almost every possible scratch from reaching the paint.
+                  Paint protection films come with 5, 7 and 10 year warranty plans.
+                  Choose from a range of Wheel, Glasses and Plastic trim coatings along with your PPF requirements, here at Dream Hub.
+                  Contact us by filling out the enquiry form and get your car protected with PPF today.<br>
+                  <b>Note:</b>
+                  <li>The given warranty on the applied film is provided by the company (or brand) of which the product has been applied and final decision of claims lie with the brand.</li>
+                  <li>Considering Indian circumstances, minor dust specs may arise during application, but we make sure that we deliver the vehicle as per acceptable standards.</li>
+                  <li>PPF application includes a 2D film being applied on a 3D surface and thus the film has to be stretched at certain corners for best adhesion. Thus few stretch marks are unavoidable.</li>
+                  <li>We use the best branded TPU films which have self healing abilities. But this property works only on minor swirl marks that arise due to improper washing practices. Deep scratches don’t heal but in most cases, PPF protects the paint from them.</li>
+                  <li>Due to age and oxidation, PPF just like anything else, ages and suffers environmental damage. With time, slight yellowness is unavoidable but unlike cheap quality PPF, this yellowness does not happen instantly.</li>
+                  <li>The adhesion of PPF is very strong and it may cause problems on re-painted panels, when removed. Although this risk could be reduced with good painting workmanship. Hence warranties are not applicable on repainted panels.</li>
+                  <li> PPF application is a complex process and depending on the size and shape of the panel, a few times we as applicators have to decide to put a joint on the film applied. We try to avoid this as much as possible but certain times it is mandatory.
+                  </li>
+                </p>
+              
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/CVU51J-CEn0?si=zOGN6V1T07OoqJzn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/32CTyGhEP68?si=gE7f-nT1S22WFoSQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div><!-- End tab content item -->
+
+
+          <div class="tab-pane fade" id="features-tab-3" role="tabpanel">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                <h3>Body-Shop (Denting & Painting)</h3>
+                <p>
+                  We provide A-grade painting services across all types and categories of cars available in the market. It could be a panel of your new car, a complete outer body paint job for a decently aged vehicle, a custom colour paint job f your choice or maybe even a hardcore restoration of your old family’s car; we are here to help you out. Our experienced staff puts utmost attention in bringing out the best possible finish on your car’s paint. We diligently follow all required protocols and focus on delivering an exceptional experience that you probably might not have had at body-shop before. Our paint jobs come with a 2 year application warranty and if taken good care of, the paint can easily last you a decade.
+                  Choose from a range of Body, Wheel, Glasses, Plastic trim coatings and Paint protection films after the Paint job, here at Dream Hub. Full body paint jobs get discounts on detailing and paint protection services.
+                  Contact us by filling out the enquiry form and get your painted today.<br>
+                  <b>Note:</b>
+                  <li> Heavily rusted vehicles or vehicle which have been painted multiple times before will not be covered under warranty.</li>
+                  <li>We provide a 6 month warranty on Rusting, 1 year warranty on Blistering, Cracking, Peeling & Paint adhesion, and a 3 year warranty on Clear coat failure and/or Paint failure.</li>
+                  <li>Paint shrinkage is normal and acceptable on cars with heavy base work. However, cracking and peeling of paint in such cars is still covered under warranty.</li>
+                  <li>  Life of the paint is totally dependant on the usage and maintenance by the customer.
+                  </li>
+                </p>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/rVChwao4zEI?si=CfrmoMPfUnDc0t8N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/Haz9eyt-dCY?si=CIxCnztlQGc4rM3q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div> 
+            </div>
+          </div><!-- End tab content item -->
+
+          <div class="tab-pane fade" id="features-tab-4" role="tabpanel">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column ">
+                <h3>Detailing and Interior cleaning</h3>
+                <p>
+                  The interiors of your car are just as crucial as your exteriors. Age and use deteriorates the newness of these interiors, but we offer Painting and leathering services to rejuvenate them back. Headliner replacement, All plastic panels painting, leather upholstery, steering and gear knob covers, Wooden or highlighted Hydrographics topped with custom stitched 7D matts or floor lamination (of your choice) are a total package of what we offer in our Interior modifications. So if you wish to change the way your car interiors appear, look no further.
+                </p>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/c2UgBTtw7PA?si=e63xxLCNMqmKHUj5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div> 
+            </div>
+          </div><!-- End tab content item -->
+
+
+        </div>
+
+      </div>
+
+    </section><!-- /Features Section -->
+  </main>
+  {% include "footer.html"%}
+  
+</body>
+
+</html>

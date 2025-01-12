@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dream Hub - other services</title>
+<meta content="" name="description">
+<meta content="" name="keywords">
+
+<!-- Favicons -->
+<link href="{% static 'assets/img/icon.png' %}" rel="icon">
+<link href="{% static 'assets/img/icon.png' %}" rel="apple-touch-icon">
+<!-- Fonts -->
+<link href="{% static 'https://fonts.googleapis.com' %}" rel="preconnect">
+<link href="{% static 'https://fonts.gstatic.com" rel="preconnect' %}" crossorigin>
+<link href="{% static 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap' %}" rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+<!-- Main CSS File -->
+<link href="{% static 'assets/css/main.css' %}" rel="stylesheet"> 
+</head>
+<body class="index-page">
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+        
+        <a href="{% url 'index'%}" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/carhub.png" alt=""> -->
+        {% comment %} <img src="{% static 'assets/img/hero-carousel/logo-brotomotive.png' %}"/> {% endcomment %}
+        <img src="{% static 'assets/img/hero-carousel/logo.png' %}"/>
+        {% comment %} <h1 class="sitename">Dream Hub</h1> <span>.</span> {% endcomment %}
+        </a>
+        <nav id="navmenu" class="navmenu">
+        <ul>
+        <li><a href="{% url 'index'%}">Home</a></li>
+        <li><a href="{% url 'about'%}">About us </a></li>
+        <!-- <li><a href="services.html"> Our Services</a></li> -->
+        <li class="dropdown"><a href="#service"class="active"><span>Our Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+                <li><a href="{% url 'ceramic'%}">Ceramic & Graphane Coating</a></li>
+                </li>
+                <li><a href="{% url 'ppf'%}">Paint Potection Film</a></li>
+                <li><a href="{% url 'denting'%}">Body Shop (danting painting)</a></li>
+                <li><a href="{% url 'wrap'%}">Wrap Jobs</a></li>
+                <li><a href="{% url 'detailing'%}">Detailing and interior cleaning</a></li>
+                <li><a href="{% url 'insurance'%}">Insurance clames</a></li>
+                <li><a href="{% url 'other'%}">Other services</a>
+                </ul>
+            </li>
+            <li><a href="{% url 'contact'%}">Contact</a></li>
+            <li><a href="{% url 'login'%}">Login</a></li>
+            </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+        
+        </div>
+        </header>
+<main class="main">
+    <div>
+        <!-- Placeholder for content -->
+        <div id="content-placeholder" class="content-placeholder" style="height: 100px;">
+            <!-- Content goes here in the future -->
+        </div>
+    </div>
+<div class="card mb-3" style="max-width: 100%;">
+    <div class="row g-0">
+        <div class="col-md-6">
+        <div class="card-body">
+            <h3 class="card-title"><b>Other Services</b></h3>
+            <p>
+                We even offer other crucial services such as:
+                <li>Under-body anti-rust coatings</li>
+                <li>Windshield and all glass polishing</li>
+                <li>Seat covers and Door pad leather upholstery</li>
+                <li>Steering, Gear knob and Gear bellow covers</li>
+                <li>7D matts with custom stitchings</li>
+                <li>Headlight and taillight restorations</li>
+                <li>Body Washing and Vacuuming</li>
+                <li>Headliners replacement</li>
+            </p>
+        </div>
+        </div>
+    </div>
+    </div>
+</main>
+{% include "footer.html"%}
+</body>
+
+</html>
