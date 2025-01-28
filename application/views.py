@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, logout as auth_logout, login as au
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required 
 from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
 # Create your views here.
 #index page and form
 def index(request):
@@ -33,15 +34,6 @@ def master_page(request):
 
 
 
-
-
-
-
-
-
-
-
-
 #contact page and form
 def contact(request):
     if request.method == "POST":
@@ -57,7 +49,6 @@ def contact(request):
             messages.error(request, 'There was an error sending your message. Please try again later.')
         
     return render(request, 'contact.html')
-
 
 #login code made by sushant
 @csrf_exempt
@@ -87,3 +78,4 @@ def admin_page(request):
     if not request.user.is_staff:
         return HttpResponseForbidden('You are not authorized to view this page.')
     return render(request, '/admin/')
+

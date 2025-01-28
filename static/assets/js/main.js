@@ -166,4 +166,5 @@
    */
   new PureCounter();
 
+
 })();

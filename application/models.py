@@ -8,3 +8,5 @@ class enquiry_table(models.Model):
 
     def __str__(self):
         return self.name
+    
+#form for user feedback

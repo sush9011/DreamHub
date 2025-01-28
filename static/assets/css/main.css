@@ -2858,3 +2858,19 @@ box-shadow: inset 10px 10px 600px rgb(0, 0, 0);
   position: relative;
   z-index: -2;
 }
+.card-item {
+  transition: transform 0.3s ease;
+  border-radius: 50% ;
+}
+
+.card-item:hover {
+  transform: scale(1.05) translateY(-5px);
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px #feb900;
+} 
+.hr{
+  color: #7d7d7d;
+}
+.service-text{
+  margin: 0%;
+}
