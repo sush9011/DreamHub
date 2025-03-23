@@ -1,12 +1,11 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Dream Hub - Body-Shop (Denting & Painting) </title>
-<meta content="" name="description">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Service Booking</title>
+    <meta content="" name="description">
 <meta content="" name="keywords">
 
 <!-- Favicons -->
@@ -44,7 +43,7 @@
         <li><a href="{% url 'index'%}">Home</a></li>
         <li><a href="{% url 'about'%}">About us </a></li>
         <!-- <li><a href="services.html"> Our Services</a></li> -->
-        <li class="dropdown"><a href="#service"class="active"><span>Our Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+        <li class="dropdown"><a href="#service"><span>Our Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
                 <li><a href="{% url 'ceramic'%}">Ceramic & Graphane Coating</a></li>
                 </li>
@@ -56,48 +55,61 @@
                 <li><a href="{% url 'other'%}">Other services</a>
                 </ul>
             </li>
-            <li><a href="{% url 'book_service'%}">Booking</a></li>
+            <li><a href="{% url 'book_service'%}" class="active">Booking</a></li>
             <li><a href="{% url 'contact'%}">Contact</a></li>
             <li><a href="{% url 'login'%}">Login</a></li>
             </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-        
         </div>
         </header>
-<main class="main">
-    <div>
-        <!-- Placeholder for content -->
-        <div id="content-placeholder" class="content-placeholder" style="height: 100px;">
-            <!-- Content goes here in the future -->
-        </div>
-    </div>
-<div class="card mb-3" style="max-width: 100%;">
-    <div class="row g-0">
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh; margin-top: 50px;">
+    <div class="row justify-content-center w-100">
         <div class="col-md-6">
-        <div class="card-body">
-            <h3 class="card-title"><b>Body-Shop (Denting & Painting)</b></h3>
-            <p>
-                We provide A-grade painting services across all types and categories of cars available in the market. It could be a panel of your new car, a complete outer body paint job for a decently aged vehicle, a custom colour paint job f your choice or maybe even a hardcore restoration of your old family’s car; we are here to help you out. Our experienced staff puts utmost attention in bringing out the best possible finish on your car’s paint. We diligently follow all required protocols and focus on delivering an exceptional experience that you probably might not have had at body-shop before. Our paint jobs come with a 2 year application warranty and if taken good care of, the paint can easily last you a decade.
-                Choose from a range of Body, Wheel, Glasses, Plastic trim coatings and Paint protection films after the Paint job, here at Dream Hub. Full body paint jobs get discounts on detailing and paint protection services.
-                Contact us by filling out the enquiry form and get your painted today.<br>
-                <b>Note:</b>
-                <li> Heavily rusted vehicles or vehicle which have been painted multiple times before will not be covered under warranty.</li>
-                <li>We provide a 6 month warranty on Rusting, 1 year warranty on Blistering, Cracking, Peeling & Paint adhesion, and a 3 year warranty on Clear coat failure and/or Paint failure.</li>
-                <li>Paint shrinkage is normal and acceptable on cars with heavy base work. However, cracking and peeling of paint in such cars is still covered under warranty.</li>
-                <li>  Life of the paint is totally dependant on the usage and maintenance by the customer.
-                </li>
-            </p>
-        </div>
-        </div>
-        <div class="col-md-6">
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/rVChwao4zEI?si=CfrmoMPfUnDc0t8N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/Haz9eyt-dCY?si=CIxCnztlQGc4rM3q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="card p-4 shadow-lg" style="background-color: #333; color: #fff; border-radius: 10px;">
+                <h3 class="text-center mb-4" style="color: #f8f9fa;">Book a Service</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" name="name" class="form-control bg-dark text-white" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control bg-dark text-white" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Phone</label>
+                        <input type="text" name="phone" class="form-control bg-dark text-white" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Select Service</label>
+                        <select name="service_type" class="form-select bg-dark text-white" required>
+                            <option value="ppf">Paint Protection Film</option>
+                            <option value="wrap">Car Wrapping</option>
+                            <option value="detail">Car Detailing</option>
+                            <option value="mod">Car Modification</option>
+                            <option value="repair">Accidental Repair</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Appointment Date</label>
+                        <input type="date" name="appointment_date" class="form-control bg-dark text-white" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Additional Message</label>
+                        <textarea name="message" class="form-control bg-dark text-white" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Book Now</button>
+                </form>
+            </div>
         </div>
     </div>
-    </div>
-</main>
+</div>
+{% endblock %}
+
 {% include "footer.html"%}
 </body>
-
 </html>

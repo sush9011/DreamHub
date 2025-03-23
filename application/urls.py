@@ -19,7 +19,6 @@ from django.contrib import admin
 from django.urls import path
 from application import views
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='index'),
@@ -32,6 +31,8 @@ urlpatterns = [
     path('denting/',views.denting,name='denting'),
     path('wrap/',views.wrap,name='wrap'),
     path('other/',views.other,name='other'),
+    path("success/", views.success, name="success"),
+    path('book/', views.book_service, name='book_service'),
 #login,admin URLS 
     path('login/', views.admin_login, name='login'),
     path('logout/',views.logout_user, name='logout'),

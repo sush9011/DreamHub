@@ -4,7 +4,6 @@ from django.contrib.auth import authenticate, logout as auth_logout, login as au
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required 
 from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse
 # Create your views here.
 #index page and form
 def index(request):
@@ -27,12 +26,12 @@ def insurance(request):
     return render(request,'insurance.html')
 def other(request):
     return render(request,'other.html')
+def success(request):
+    return render(request, 'success.html')
 #maste page
 @login_required
 def master_page(request):
     return render(request, 'master_page.html')
-
-
 
 #contact page and form
 def contact(request):
@@ -44,12 +43,11 @@ def contact(request):
         enquiry = enquiry_table(name = name, email = email, phone = phone, message = message)
         try:
             enquiry.save()
-            messages.success(request, 'Your message has been sent successfully!')
+            return render(request, 'success.html')
         except Exception as e:
-            messages.error(request, 'There was an error sending your message. Please try again later.')
-        
-    return render(request, 'contact.html')
+            messages.error(request, 'There was an error sending your message. Please try again later.')  
 
+    return render(request, 'contact.html')
 #login code made by sushant
 @csrf_exempt
 def admin_login(request):  # Avoid naming conflicts
@@ -78,4 +76,17 @@ def admin_page(request):
     if not request.user.is_staff:
         return HttpResponseForbidden('You are not authorized to view this page.')
     return render(request, '/admin/')
+
+from django.shortcuts import render, redirect
+from .forms import ServiceBookingForm
+
+def book_service(request):
+    if request.method == "POST":
+        form = ServiceBookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('success')  # Redirect after booking
+    else:
+        form = ServiceBookingForm()
+    return render(request, 'service_booking.html', {'form': form})
 

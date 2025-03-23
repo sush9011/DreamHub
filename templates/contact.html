@@ -1,5 +1,4 @@
 {% load static %}
-{% include 'feedback_popup.html' %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +59,8 @@
             <li><a href="{% url 'other'%}">Other services</a>
             </ul>
         </li>
-        <li><a href="{% url 'contact'%}">Contact</a></li>
+        <li><a href="{% url 'book_service'%}">Booking</a></li>
+        <li><a href="{% url 'contact'%}" class="active" >Contact</a></li>
         <li><a href="{% url 'login'%}">Login</a></li>
         </ul>
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -127,7 +127,6 @@
         <div class="col-lg-6" >
           <form action="{% url 'contact' %}" method="POST" name="contactus_form" >
             <!-- In front of action="this name should be technical name of function using contact.html page is showing on the browser which we write in urls.py file as views.reg" -->
-  
             {% csrf_token %}
     <!-- Cross-Site Request Forgery (CSRF) is an attack that forces authenticated users to submit a request to a Web application against which they are currently authenticated.
     CSRF Token used to prevent unathorized person could not submit form from your website-->
