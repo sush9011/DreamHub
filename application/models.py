@@ -6,6 +6,7 @@ class enquiry_table(models.Model):
     phone = models.CharField(max_length=10)
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    is_checked = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
@@ -26,6 +27,7 @@ class ServiceBooking(models.Model):
     appointment_date = models.DateField()
     message = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    is_checked = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.name} - {self.get_service_type_display()}"

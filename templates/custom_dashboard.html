@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Admin Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f8f9fa; }
+        h1, h2 { text-align: center; }
+        table { width: 90%; margin: 20px auto; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 10px; }
+        th { background: #333; color: #fff; }
+        tr:nth-child(even) { background: #f2f2f2; }
+        section { margin-bottom: 50px; }
+        form { width: 90%; margin: 20px auto; text-align: center; }
+        input, select, button { padding: 5px 10px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+
+    <!-- Enquiries Section -->
+    <section>
+        <h2>Enquiry Data</h2>
+        <form method="get">
+            <input type="text" name="enquiry_search" placeholder="Search Enquiries..." value="{{ request.GET.enquiry_search }}">
+            <input type="date" name="enquiry_date" value="{{ request.GET.enquiry_date }}">
+            <button type="submit">Filter</button>
+        </form>
+        <table>
+            <tr>
+                <th>ID</th><th>Name</th><th>Email</th>
+                <th>Phone</th><th>Message</th><th>Date</th>
+            </tr>
+            {% for e in enquiries %}
+            <tr>
+                <td>{{ e.id }}</td>
+                <td>{{ e.name }}</td>
+                <td>{{ e.email }}</td>
+                <td>{{ e.phone }}</td>
+                <td>{{ e.message }}</td>
+                <td>{{ e.created_at|date:"d M Y, H:i" }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="6" style="text-align:center;">No enquiries found</td></tr>
+            {% endfor %}
+        </table>
+    </section>
+
+    <!-- Service Bookings Section -->
+    <section>
+        <h2>Service Bookings</h2>
+        <form method="get">
+            <input type="text" name="booking_search" placeholder="Search Bookings..." value="{{ request.GET.booking_search }}">
+            <input type="date" name="booking_date" value="{{ request.GET.booking_date }}">
+            <select name="service_type">
+                <option value="">All Services</option>
+                <option value="ppf" {% if request.GET.service_type == "ppf" %}selected{% endif %}>Paint Protection Film</option>
+                <option value="wrap" {% if request.GET.service_type == "wrap" %}selected{% endif %}>Car Wrapping</option>
+                <option value="detail" {% if request.GET.service_type == "detail" %}selected{% endif %}>Car Detailing</option>
+                <option value="mod" {% if request.GET.service_type == "mod" %}selected{% endif %}>Car Modification</option>
+                <option value="repair" {% if request.GET.service_type == "repair" %}selected{% endif %}>Accidental Repair</option>
+            </select>
+            <button type="submit">Filter</button>
+        </form>
+        <table>
+            <tr>
+                <th>ID</th><th>Name</th><th>Email</th><th>Phone</th>
+                <th>Service Type</th><th>Appointment Date</th>
+                <th>Message</th><th>Date</th>
+            </tr>
+            {% for b in bookings %}
+            <tr>
+                <td>{{ b.id }}</td>
+                <td>{{ b.name }}</td>
+                <td>{{ b.email }}</td>
+                <td>{{ b.phone }}</td>
+                <td>{{ b.get_service_type_display }}</td>
+                <td>{{ b.appointment_date }}</td>
+                <td>{{ b.message }}</td>
+                <td>{{ b.created_at|date:"d M Y, H:i" }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="8" style="text-align:center;">No bookings found</td></tr>
+            {% endfor %}
+        </table>
+    </section>
+</body>
+</html>
